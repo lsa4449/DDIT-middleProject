@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.login.SearchController">
+   <children>
+      <JFXButton fx:id="btnSearch" layoutX="223.0" layoutY="310.0" style="-fx-border-color: CA9B87;" text="ID 찾기 / 비밀번호 찾기" />
+      <JFXTextField fx:id="textEmail" layoutX="168.0" layoutY="205.0" prefHeight="29.0" prefWidth="300.0" />
+      <Text layoutX="100.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일" />
+      <JFXTextField fx:id="textName" layoutX="173.0" layoutY="80.0" />
+      <Text layoutX="108.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이름" />
+   </children>
+</AnchorPane>

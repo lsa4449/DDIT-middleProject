@@ -1,0 +1,6 @@
+.label {
+  -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-font-size: 20;
+}

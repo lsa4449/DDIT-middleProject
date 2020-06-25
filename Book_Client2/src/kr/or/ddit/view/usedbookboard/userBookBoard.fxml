@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1078.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.usedbookboard.UserBookBoardController">
+   <children>
+      <Separator layoutX="108.0" layoutY="274.0" prefHeight="0.0" prefWidth="862.0" style="-fx-background-color: gray;" />
+      <Label layoutX="107.0" layoutY="179.0" prefHeight="51.0" prefWidth="203.0" text="중고서적 구매 ">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
+      <TableView fx:id="table" layoutX="158.0" layoutY="357.0" prefHeight="283.0" prefWidth="779.0" stylesheets="@../../../../../../../css/tableview.css">
+        <columns>
+            <TableColumn fx:id="no" minWidth="0.0" prefWidth="0.0" text="No" />
+          <TableColumn fx:id="groupNo" prefWidth="66.0" text="No" />
+          <TableColumn fx:id="title" prefWidth="367.0" text="제목" />
+            <TableColumn fx:id="count" minWidth="0.0" prefWidth="160.0" text="조회수" />
+            <TableColumn fx:id="date" prefWidth="185.0" text="작성일" />
+            <TableColumn fx:id="write" minWidth="0.0" prefWidth="0.0" text="작성자" />
+        </columns>
+      </TableView>
+    
+      <JFXButton fx:id="insertBtn" layoutX="863.0" layoutY="301.0" prefHeight="33.0" prefWidth="67.0" style="-fx-border-color: #B88A76;" text="작성" />
+      <JFXButton fx:id="cellBtn" layoutX="110.0" layoutY="234.0" prefHeight="35.0" prefWidth="86.0" style="-fx-border-color: #B88A76;" text="삽니다 ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buyBtn" layoutX="203.0" layoutY="234.0" prefHeight="35.0" prefWidth="86.0" style="-fx-border-color: #B88A76;" text="팝니다 ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="menuBtn" layoutX="135.0" layoutY="304.0" prefHeight="29.0" prefWidth="113.0" />
+      <Pagination fx:id="pagination" layoutX="158.0" layoutY="358.0" prefHeight="349.0" prefWidth="779.0" stylesheets="@../../../../../../../css/tableview.css" />
+      <JFXTextField fx:id="titleText" layoutX="255.0" layoutY="304.0" prefHeight="29.0" prefWidth="270.0" />
+      <JFXButton fx:id="titleBtn" layoutX="539.0" layoutY="301.0" prefHeight="33.0" prefWidth="67.0" style="-fx-border-color: #B88A76;" text="검색 " />
+      <JFXButton fx:id="backBtn" layoutX="856.0" layoutY="235.0" prefHeight="33.0" prefWidth="114.0" style="-fx-border-color: #F88E8E;" text="뒤로가기" />
+      <AnchorPane layoutY="31.0" prefHeight="100.0" prefWidth="1078.0" style="-fx-background-color: CA9B87;">
+         <children>
+            <MenuBar fx:id="mButton3" layoutX="601.0" layoutY="35.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+               <menus>
+                  <Menu mnemonicParsing="false" text="게시판">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="인사말" />
+                        <MenuItem mnemonicParsing="false" text="조직" />
+                        <MenuItem mnemonicParsing="false" text="운영규정" />
+                        <MenuItem mnemonicParsing="false" text="위치안내" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <MenuBar fx:id="mButton4" layoutX="728.0" layoutY="35.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+               <menus>
+                  <Menu mnemonicParsing="false" text="신청">
+                     <items>
+                        <MenuItem fx:id="wannaBook" mnemonicParsing="false" text="희망도서신청" />
+                        <MenuItem fx:id="reserBook" mnemonicParsing="false" text="도서대여" />
+                        <MenuItem fx:id="seat" mnemonicParsing="false" text="좌석신청" />
+                        <MenuItem fx:id="studyRoom" mnemonicParsing="false" text="스터디룸 신청" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="참여">
+                     <items>
+                        <MenuItem fx:id="monthBook" mnemonicParsing="false" text="이달의 도서" />
+                        <MenuItem fx:id="chat" mnemonicParsing="false" text="채팅 참여" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <MenuBar fx:id="mButton5" layoutX="900.0" layoutY="34.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+               <menus>
+                  <Menu mnemonicParsing="false" text="독서 문화 활동">
+                     <items>
+                        <MenuItem fx:id="usedBook" mnemonicParsing="false" text="중고 서적 구매" />
+                        <MenuItem fx:id="buy" mnemonicParsing="false" text="삽니다" />
+                        <MenuItem fx:id="sell" mnemonicParsing="false" text="팝니다" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <MenuBar fx:id="mButton1" layoutX="283.0" layoutY="35.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+               <menus>
+                  <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="도서관 이용">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="도서관이용시간" />
+                        <MenuItem mnemonicParsing="false" text="시설/기기이용안내" />
+                        <MenuItem fx:id="searchBook" mnemonicParsing="false" text="도서검색" />
+                        <MenuItem fx:id="notice" mnemonicParsing="false" text="공지사항" />
+                        <MenuItem fx:id="QnA" mnemonicParsing="false" text="문의사항" />
+                        <MenuItem fx:id="community" mnemonicParsing="false" text="커뮤니티게시판" />
+                     </items>
+                  </Menu>
+               </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+            </MenuBar>
+            <ImageView fx:id="logo" fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../images/book2.png" />
+               </image>
+            </ImageView>
+            <Text fill="#eeeded" layoutX="78.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대덕도서관">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Text>
+            <Text fill="#eeebeb" layoutX="83.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대덕인재개발원" />
+            <MenuBar fx:id="mButton2" layoutX="444.0" layoutY="35.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+               <menus>
+                  <Menu mnemonicParsing="false" text="도서관 소개">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="인사말" />
+                        <MenuItem mnemonicParsing="false" text="조직" />
+                        <MenuItem mnemonicParsing="false" text="운영규정" />
+                        <MenuItem mnemonicParsing="false" text="위치안내" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Text fill="#eeebeb" layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="책볼래">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.admin.memManageController">
+   <children>
+      <ScrollPane layoutX="80.0" layoutY="239.0" prefHeight="280.0" prefWidth="1074.0">
+         <content>
+            <TableView fx:id="member" prefHeight="272.0" prefWidth="1069.0" stylesheets="@../../../../../../../css/tableview.css">
+              <columns>
+                <TableColumn fx:id="num" prefWidth="39.0" text="번호" />
+                <TableColumn fx:id="name" prefWidth="89.0" text="이름" />
+                  <TableColumn fx:id="id" prefWidth="104.0" text="아이디" />
+                  <TableColumn fx:id="pw" prefWidth="100.0" text="비밀번호" />
+                  <TableColumn fx:id="rrn" prefWidth="135.0" text="주민등록번호" />
+                  <TableColumn fx:id="joinDate" prefWidth="219.0" text="가입 일자" />
+                  <TableColumn fx:id="tel" prefWidth="123.0" text="전화번호" />
+                  <TableColumn fx:id="lateCount" prefWidth="137.0" text="연체횟수" />
+                  <TableColumn fx:id="state" prefWidth="122.0" text="회원 상태" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label layoutX="80.0" layoutY="209.0" text="Label" />
+      <AnchorPane layoutY="51.0" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: CA9B87;">
+         <children>
+            <Label layoutX="118.0" layoutY="17.0" prefHeight="40.0" prefWidth="363.0" text="대덕도서관 관리자 모드" textFill="WHITE">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="140.0" layoutY="61.0" prefHeight="21.0" prefWidth="156.0" text="ddit...그는 도덕책" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="85.0" fitWidth="92.0" layoutX="25.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../images/book2.png" />
+               </image>
+            </ImageView>
+            <Text fill="#eeebeb" layoutX="40.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="책볼래">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="backBtn" layoutX="1040.0" layoutY="193.0" prefHeight="33.0" prefWidth="114.0" style="-fx-border-color: #F88E8E;" text="뒤로가기" />
+   </children>
+</AnchorPane>

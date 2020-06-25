@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1079.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.mypage.mypointPageController">
+	<children>
+		<Text layoutX="521.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POINT" wrappingWidth="102.0">
+			<font>
+				<Font size="22.0" />
+			</font>
+		</Text>
+		<Text layoutX="388.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="결제 및 개인정보 제3자 정보 동의" wrappingWidth="431.0">
+			<font>
+				<Font size="26.0" />
+			</font>
+		</Text>
+		<ImageView fx:id="img2" fitHeight="244.0" fitWidth="482.0" layoutX="315.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+		</ImageView>
+		<ImageView fx:id="logo" fitHeight="62.0" fitWidth="228.0" layoutX="458.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+		<Line endX="960.0" layoutX="97.0" layoutY="294.0" startX="-74.0" stroke="#a48765" />
+		<ImageView fx:id="check" fitHeight="46.0" fitWidth="54.0" layoutX="319.0" layoutY="578.0" pickOnBounds="true" preserveRatio="true" />
+		<AnchorPane layoutX="220.0" layoutY="76.0" prefHeight="195.0" prefWidth="320.0" style="-fx-background-color: #FBDACD;">
+			<children>
+				<Text layoutX="111.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="총 포인트" wrappingWidth="122.99999774619937">
+					<font>
+						<Font name="Sitka Text" size="20.0" />
+					</font>
+				</Text>
+				<JFXTextArea fx:id="pointAllText" layoutX="114.0" layoutY="88.0" prefHeight="49.0" prefWidth="92.0">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</JFXTextArea>
+				<Text layoutX="207.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P" wrappingWidth="29.99999774619937">
+					<font>
+						<Font name="Sitka Text" size="34.0" />
+					</font>
+				</Text>
+			</children>
+		</AnchorPane>
+		<AnchorPane layoutX="557.0" layoutY="76.0" prefHeight="195.0" prefWidth="320.0" style="-fx-background-color: #FBDACD;">
+			<children>
+				<Text layoutX="85.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="충전 포인트 입력" wrappingWidth="151.99999774619937">
+					<font>
+						<Font name="Sitka Text" size="20.0" />
+					</font>
+				</Text>
+				<JFXTextArea fx:id="priceText" layoutX="109.0" layoutY="85.0" prefHeight="49.0" prefWidth="102.0">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</JFXTextArea>
+			</children>
+		</AnchorPane>
+		<Button fx:id="pointBtn" layoutX="319.0" layoutY="632.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="482.0" style="-fx-background-color: no; -fx-border-color: #F88E8E;" text="충전" textFill="#171717">
+			<font>
+				<Font size="22.0" />
+			</font>
+		</Button>
+      <JFXButton fx:id="backBtn" layoutX="917.0" layoutY="645.0" prefHeight="33.0" prefWidth="114.0" style="-fx-border-color: #F88E8E;" text="뒤로가기" />
+	</children>
+</AnchorPane>

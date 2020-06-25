@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.mypage.MyPageStudyRoomController">
+   <children>
+      <TableView fx:id="tv" layoutX="14.0" layoutY="21.0" prefHeight="347.0" prefWidth="570.0" stylesheets="@../../../../../../../css/tableview.css">
+        <columns>
+          <TableColumn fx:id="tcName" prefWidth="102.0" text="이름" />
+          <TableColumn fx:id="tcReserve" prefWidth="187.0" text="대여 시간" />
+            <TableColumn fx:id="tcReturn" prefWidth="186.0" text="반납 시간" />
+            <TableColumn fx:id="tcRoom" prefWidth="94.0" text="방 번호" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

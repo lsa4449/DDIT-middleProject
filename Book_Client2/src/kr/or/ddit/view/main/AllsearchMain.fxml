@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="484.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.main.searchController">
+	<children>
+		<JFXTextField fx:id="text" layoutX="194.0" layoutY="96.0" prefHeight="29.0" prefWidth="139.0" />
+		<ImageView fx:id="search" fitHeight="39.0" fitWidth="43.0" layoutX="342.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+		<Text layoutX="93.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전체 검색">
+			<font>
+				<Font size="20.0" />
+			</font>
+		</Text>
+		<TableView fx:id="table" layoutY="181.0" prefHeight="344.0" prefWidth="484.0" style="-fx-background-color: white;" stylesheets="@../../../../../../../css/tableview.css">
+			<columns>
+				<TableColumn fx:id="title" prefWidth="483.0" text="제목" />
+			</columns>
+		</TableView>
+	</children>
+</AnchorPane>

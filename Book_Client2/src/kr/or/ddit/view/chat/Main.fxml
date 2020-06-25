@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="610.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.chat.MainForm">
+   <children>
+      <ImageView fitHeight="580.0" fitWidth="322.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true">
+         <image>
+            <Image url="/images/phone.PNG" />
+         </image>
+      </ImageView>
+      <TextField fx:id="chatField" layoutX="49.0" layoutY="504.0" prefHeight="32.0" prefWidth="195.0" />
+      <Button fx:id="create_btn" layoutX="510.0" layoutY="531.0" mnemonicParsing="false" onAction="#createNewRoom" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: white; -fx-border-color: #CA9B87;" text="방만들기" />
+      <ScrollPane layoutX="387.0" layoutY="47.0" prefHeight="160.0" prefWidth="215.0">
+         <content>
+            <ListView fx:id="roomList" onMouseClicked="#clickRoomList" prefHeight="157.0" prefWidth="212.0" style="-fx-background-color: white; -fx-border-color: #CA9B87;" />
+         </content>
+      </ScrollPane>
+      <ScrollPane layoutX="387.0" layoutY="243.0" prefHeight="145.0" prefWidth="215.0">
+         <content>
+            <ListView fx:id="clientList" layoutX="358.0" prefHeight="142.0" prefWidth="213.0" style="-fx-background-color: white; -fx-border-color: #CA9B87;" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="send_btn" layoutX="252.0" layoutY="504.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: white; -fx-border-color: #CA9B87;" text="전송" />
+      <Label layoutX="387.0" layoutY="399.0" text="방 제목 : " />
+      <Label layoutX="404.0" layoutY="434.0" text="ID : " />
+      <Label fx:id="inRoomName" layoutX="467.0" layoutY="399.0" text="--" />
+      <Label fx:id="myNickName" layoutX="458.0" layoutY="434.0" text="--" />
+      <ScrollPane layoutX="48.0" layoutY="77.0" prefHeight="421.0" prefWidth="275.0" style="-fx-border-image-slice: none;">
+         <content>
+            <TextFlow fx:id="chatFlow" prefHeight="417.0" prefWidth="267.0" style="-fx-background-color: F0F8FF;" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="login_btn" layoutX="495.0" layoutY="570.0" minWidth="44.0" mnemonicParsing="false" onAction="#createLoginForm" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: #CA9B87;" text="접속하기" />
+      <Label layoutX="390.0" layoutY="18.0" text="방 목록" />
+      <Label layoutX="385.0" layoutY="217.0" text="현재 방 참여자" />
+   </children>
+</AnchorPane>

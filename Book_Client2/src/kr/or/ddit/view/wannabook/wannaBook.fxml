@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.wannabook.WannabookController">
+   <children>
+		<Text fill="#1b0101" layoutX="150.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="제목" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<Text fill="#1b0101" layoutX="150.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="저자" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<Text fill="#1b0101" layoutX="135.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="출판사" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<Text fill="#1b0101" layoutX="150.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="역자" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<TextField fx:id="title" layoutX="233.0" layoutY="97.0" prefHeight="29.0" prefWidth="218.0" />
+		<TextField fx:id="author" layoutX="233.0" layoutY="148.0" prefHeight="29.0" prefWidth="218.0" />
+		<TextField fx:id="publisher" layoutX="233.0" layoutY="205.0" prefHeight="29.0" prefWidth="218.0" />
+		<TextField fx:id="translator" layoutX="233.0" layoutY="316.0" prefHeight="29.0" prefWidth="218.0" />
+		<TextField fx:id="price" layoutX="233.0" layoutY="366.0" prefHeight="29.0" prefWidth="218.0" />
+		<Button fx:id="regBtn" layoutX="452.0" layoutY="537.0" mnemonicParsing="false" onAction="#insertWannaBook" prefHeight="44.0" prefWidth="91.0" style="-fx-background-color: no; -fx-border-color: #F88E8E;" text="등록" textFill="#110101" />
+		<Text fill="#1b0101" layoutX="150.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="가격" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<TextField fx:id="state" layoutX="234.0" layoutY="419.0" prefHeight="29.0" prefWidth="218.0" />
+		<Text fill="#1b0101" layoutX="112.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="카테고리" wrappingWidth="91.00000236183405">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<TextField fx:id="category" layoutX="234.0" layoutY="474.0" prefHeight="29.0" prefWidth="218.0" />
+		<Text fill="#1b0101" layoutX="112.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="도서 상태" wrappingWidth="91.00000236183405">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<Text fill="#1b0101" layoutX="150.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN" wrappingWidth="68.6513671875">
+			<font>
+				<Font size="19.0" />
+			</font>
+		</Text>
+		<TextField fx:id="isbn" layoutX="233.0" layoutY="259.0" prefHeight="29.0" prefWidth="218.0" />
+   </children>
+</AnchorPane>

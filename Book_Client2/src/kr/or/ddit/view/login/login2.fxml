@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="520.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.login.LoginController">
+   <children>
+      <Label layoutX="202.0" layoutY="270.0" prefHeight="54.0" prefWidth="222.0" text="LOGIN">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="textId" layoutX="135.0" layoutY="347.0" prefHeight="46.0" prefWidth="267.0" />
+      <JFXPasswordField fx:id="textPw" focusColor="#e4f226" layoutX="135.0" layoutY="422.0" prefHeight="37.0" prefWidth="267.0" />
+      <JFXButton fx:id="btnLogin" layoutX="135.0" layoutY="498.0" prefHeight="54.0" prefWidth="267.0" style="-fx-background-color: CA9B87;" text="로그인" textFill="#eeecec">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnsearch" layoutX="130.0" layoutY="563.0" prefHeight="31.0" prefWidth="175.0" text="아이디/비밀번호 찾기" />
+      <JFXButton fx:id="btnJoin" layoutX="305.0" layoutY="563.0" prefHeight="31.0" prefWidth="81.0" text="회원가입" />
+      <ImageView fx:id="image" fitHeight="160.0" fitWidth="153.0" layoutX="184.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@book.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

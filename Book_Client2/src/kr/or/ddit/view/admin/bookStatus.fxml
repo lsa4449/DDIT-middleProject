@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.admin.bookStatusController">
+   <children>
+      <Button fx:id="catagory_btn" layoutX="150.0" layoutY="356.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: CA9B87;" text="카테고리별" />
+      <Button fx:id="age_btn" layoutX="150.0" layoutY="428.0" mnemonicParsing="false" style="-fx-border-color: CA9B87; -fx-background-color: white;" text="사이트 이용 연령대별" />
+      <Button fx:id="BookStatus_btn" layoutX="150.0" layoutY="286.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: CA9B87;" text="도서 현황" />
+      <PieChart fx:id="pieChart" layoutX="472.0" layoutY="170.0" />
+      <AnchorPane layoutY="51.0" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: CA9B87;">
+         <children>
+            <Label layoutX="118.0" layoutY="17.0" prefHeight="40.0" prefWidth="363.0" text="대덕도서관 관리자 모드" textFill="WHITE">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="140.0" layoutY="61.0" prefHeight="21.0" prefWidth="156.0" text="ddit...그는 도덕책" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="71.0" fitWidth="69.0" layoutX="37.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../images/book2.png" />
+               </image>
+            </ImageView>
+            <Text fill="#eeebeb" layoutX="46.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="책볼래">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="backBtn" layoutX="150.0" layoutY="487.0" prefHeight="33.0" prefWidth="114.0" style="-fx-border-color: CA9B87;" text="뒤로가기" />
+   </children>
+</AnchorPane>

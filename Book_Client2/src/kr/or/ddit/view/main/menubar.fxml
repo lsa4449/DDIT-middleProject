@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="100.0" prefWidth="1078.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="search" fitHeight="57.0" fitWidth="89.0" layoutX="964.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/images/analysis.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logo" fitHeight="71.0" fitWidth="118.0" layoutX="21.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/images/logo.JPG" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="162.0" layoutY="36.0" prefHeight="29.0" prefWidth="101.0" text="button1" />
+      <JFXButton layoutX="333.0" layoutY="39.0" prefHeight="29.0" prefWidth="101.0" text="button2" />
+      <JFXButton layoutX="533.0" layoutY="39.0" prefHeight="29.0" prefWidth="101.0" text="button3" />
+      <JFXButton layoutX="712.0" layoutY="39.0" prefHeight="29.0" prefWidth="101.0" text="button4" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1320.0" prefWidth="1378.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.main.controller">
+	<content>
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1330.0" prefWidth="1333.0" style="-fx-background-color: white;">
+			<children>
+				<AnchorPane layoutX="2.0" layoutY="54.0" prefHeight="227.0" prefWidth="1374.0" />
+				<ImageView fitHeight="548.0" fitWidth="1297.0" layoutX="1.0" layoutY="170.0">
+					<image>
+						<Image url="/images/main.jpg" />
+					</image>
+				</ImageView>
+				<AnchorPane layoutX="-1.0" layoutY="69.0" prefHeight="100.0" prefWidth="1299.0" style="-fx-background-color: CA9B87;">
+					<children>
+						<MenuBar fx:id="mButton3" layoutX="719.0" layoutY="32.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+							<menus>
+								<Menu mnemonicParsing="false" text="게시판">
+									<items>
+										<MenuItem fx:id="notice" mnemonicParsing="false" text="공지사항" />
+										<MenuItem fx:id="buy" mnemonicParsing="false" text="삽니다 / 팝니다" />
+										<MenuItem fx:id="community" mnemonicParsing="false" text="커뮤니티게시판" />
+										<MenuItem fx:id="QnA" mnemonicParsing="false" text="문의사항" />
+                              <MenuItem fx:id="QnA1" mnemonicParsing="false" text="스터디 게시판" />
+									</items>
+								</Menu>
+							</menus>
+						</MenuBar>
+						<MenuBar fx:id="mButton4" layoutX="859.0" layoutY="32.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+							<menus>
+								<Menu mnemonicParsing="false" text="신청">
+									<items>
+										<MenuItem fx:id="wannaBook" mnemonicParsing="false" text="희망도서신청" />
+										<MenuItem fx:id="reserBook" mnemonicParsing="false" text="도서대여" />
+										<MenuItem fx:id="seat" mnemonicParsing="false" text="좌석신청" />
+                              <MenuItem fx:id="studyRoom" mnemonicParsing="false" text="스터디룸 신청" />
+									</items>
+								</Menu>
+								<Menu mnemonicParsing="false" text="참여">
+									<items>
+										<MenuItem fx:id="monthBook" mnemonicParsing="false" text="이달의 도서" />
+										<MenuItem fx:id="chat" mnemonicParsing="false" text="채팅 참여" />
+									</items>
+								</Menu>
+							</menus>
+						</MenuBar>
+						<MenuBar fx:id="mButton5" layoutX="1025.0" layoutY="32.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+							<menus>
+								<Menu mnemonicParsing="false" text="독서 문화 활동">
+									<items>
+                              <MenuItem fx:id="writeBook_btn" mnemonicParsing="false" text="책 쓰기" />
+									</items>
+								</Menu>
+							</menus>
+						</MenuBar>
+						<MenuBar fx:id="mButton1" layoutX="332.0" layoutY="32.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+							<menus>
+								<Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="도서관 이용">
+									<items>
+										<MenuItem mnemonicParsing="false" text="도서관이용시간" />
+										<MenuItem mnemonicParsing="false" text="시설/기기이용안내" />
+										<MenuItem fx:id="searchBook" mnemonicParsing="false" text="도서검색" />
+									</items>
+								</Menu>
+							</menus>
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<effect>
+								<Glow level="0.0" />
+							</effect>
+						</MenuBar>
+						<ImageView fx:id="logo" fitHeight="56.0" fitWidth="56.0" layoutX="42.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@../../../../../images/book2.png" />
+							</image>
+						</ImageView>
+						<Text fill="#eeeded" layoutX="106.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대덕도서관">
+							<font>
+								<Font size="33.0" />
+							</font>
+						</Text>
+						<Text fill="#eeebeb" layoutX="111.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대덕인재개발원" />
+						<ImageView fx:id="search" fitHeight="48.0" fitWidth="48.0" layoutX="1206.0" layoutY="27.0" pickOnBounds="true">
+							<image>
+								<Image url="/images/search.png" />
+							</image>
+						</ImageView>
+						<MenuBar fx:id="mButton2" layoutX="517.0" layoutY="32.0" prefHeight="27.0" style="-fx-background-color: no;" stylesheets="@../book/book.css">
+							<menus>
+								<Menu mnemonicParsing="false" text="도서관 소개">
+									<items>
+										<MenuItem mnemonicParsing="false" text="인사말" />
+										<MenuItem mnemonicParsing="false" text="조직" />
+										<MenuItem mnemonicParsing="false" text="운영규정" />
+										<MenuItem fx:id="kakaomap" mnemonicParsing="false" text="위치안내" />
+									</items>
+								</Menu>
+							</menus>
+						</MenuBar>
+                  <Text fill="#eeebeb" layoutX="52.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="책볼래">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+					</children>
+				</AnchorPane>
+				<Button fx:id="btnLogin" layoutX="1100.0" layoutY="19.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: no; -fx-border-color: #F88E8E;" text="로그인" />
+				<Button fx:id="signup_btn" layoutX="1207.0" layoutY="19.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="91.0" style="-fx-background-color: no; -fx-border-color: #F88E8E;" text="회원가입" />
+				<Text fill="#f8f5f5" layoutX="108.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 40;" text="Books are ships which pass" />
+				<Text fill="#f5f3f3" layoutX="187.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 40;" text="through the vast seas of time.">
+					<font>
+						<Font size="35.0" />
+					</font>
+				</Text>
+				<ImageView fx:id="wannaBook_image" fitHeight="81.0" fitWidth="68.0" layoutX="106.0" layoutY="735.0" pickOnBounds="true">
+					<image>
+						<Image url="/images/wannabook.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="ebook_btn" fitHeight="91.0" fitWidth="86.0" layoutX="271.0" layoutY="733.0" pickOnBounds="true">
+					<image>
+						<Image url="/images/book2.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="chatbot_btn" fitHeight="91.0" fitWidth="86.0" layoutX="465.0" layoutY="735.0" pickOnBounds="true">
+					<image>
+						<Image url="/images/chatbot.png" />
+					</image>
+				</ImageView>
+				<ImageView fx:id="chat_btn" fitHeight="91.0" fitWidth="86.0" layoutX="650.0" layoutY="733.0" pickOnBounds="true">
+					<image>
+						<Image url="/images/chat.png" />
+					</image>
+				</ImageView>
+				<Text layoutX="93.0" layoutY="840.0" strokeType="OUTSIDE" strokeWidth="0.0" text="희망도서 신청" />
+				<Text layoutX="275.0" layoutY="842.0" strokeType="OUTSIDE" strokeWidth="0.0" text="통합전자책" />
+				<Text layoutX="493.0" layoutY="842.0" strokeType="OUTSIDE" strokeWidth="0.0" text="챗봇" />
+				<Text layoutX="668.0" layoutY="842.0" strokeType="OUTSIDE" strokeWidth="0.0" text="채팅참여" />
+				<AnchorPane layoutX="93.0" layoutY="857.0" prefHeight="300.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: no;">
+					<children>
+						<MediaView fx:id="media" fitHeight="300.0" fitWidth="500.0" layoutX="50.0" layoutY="3.0" />
+					</children>
+				</AnchorPane>
+				<ImageView fx:id="map" fitHeight="471.0" fitWidth="485.0" layoutX="809.0" layoutY="732.0" pickOnBounds="true" preserveRatio="true" />
+				<Text layoutX="245.0" layoutY="1229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;도서 추천, 책을 읽읍시다&gt;">
+					<font>
+						<Font size="23.0" />
+					</font>
+				</Text>
+				<ImageView fx:id="play" fitHeight="36.0" fitWidth="38.0" layoutX="340.0" layoutY="1171.0" pickOnBounds="true" preserveRatio="true" />
+				<ImageView fx:id="stop" fitHeight="34.0" fitWidth="38.0" layoutX="386.0" layoutY="1172.0" pickOnBounds="true" preserveRatio="true" />
+				<Text layoutX="876.0" layoutY="1226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*현재 대전 중구 대흥동의 날씨를 가져온 것 입니다">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Text>
+				<Label fx:id="city" layoutX="876.0" layoutY="907.0" prefHeight="19.0" prefWidth="85.0" />
+				<Label fx:id="state" layoutX="876.0" layoutY="926.0" prefHeight="19.0" prefWidth="85.0" />
+				<Label fx:id="tempe" layoutX="876.0" layoutY="945.0" prefHeight="19.0" prefWidth="85.0" />
+				<Text layoutX="919.0" layoutY="961.0" strokeType="OUTSIDE" strokeWidth="0.0" text="℃">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Text>
+				<ImageView fx:id="arrow" fitHeight="42.0" fitWidth="76.0" layoutX="954.0" layoutY="936.0" pickOnBounds="true" preserveRatio="true" />
+            <AnchorPane layoutX="-4.0" layoutY="1276.0" prefHeight="42.0" prefWidth="1298.0" style="-fx-background-color: CA9B87;">
+               <children>
+                  <Text fill="#eeebeb" layoutX="633.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="대덕 도서관" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="userName_label" layoutX="937.0" layoutY="38.0" prefHeight="19.0" prefWidth="154.0" />
+			</children>
+		</AnchorPane>
+	</content>
+</ScrollPane>

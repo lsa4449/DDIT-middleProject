@@ -1,0 +1,15 @@
+.menu {
+	-fx-background-color: #CA9B87;
+}
+
+
+.menu .label {
+	-fx-font-size: 14pt;
+	-fx-color:white;
+	-fx-text-fill: #ffffff;
+}
+
+.menu-item .label{
+	-fx-font-size: 12pt;
+	-fx-text-fill: black;
+}

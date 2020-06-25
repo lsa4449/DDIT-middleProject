@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.ddit.view.chat.LoingForm">
+   <children>
+      <Button fx:id="ok_btn" layoutX="26.0" layoutY="147.0" mnemonicParsing="false" onAction="#clickLogin" style="-fx-background-color: white; -fx-border-color: #CA9B87;" text="회원간의 채팅" />
+      <Label layoutX="93.0" layoutY="52.0" text="채팅방에">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="49.0" layoutY="100.0" text="참여하시겠습니까?">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="okok_btn" layoutX="159.0" layoutY="147.0" mnemonicParsing="false" onAction="#clickOKOK" style="-fx-background-color: white; -fx-border-color: #CA9B87;" text="관리자와 채팅" />
+   </children>
+</AnchorPane>
