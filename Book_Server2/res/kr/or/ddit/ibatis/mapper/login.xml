@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="login">
+
+	<select id="selectLoginMember" parameterClass="MemberVO" resultClass="MemberVO">
+	SELECT * FROM member WHERE id=#id# AND pw=#pw#
+		
+	</select>
+	
+	<select id="selectSearchID_PW" parameterClass="MemberVO" resultClass="MemberVO">
+	SELECT * FROM member WHERE name=#name# AND email=#email#
+	</select>
+	
+	
+
+
+
+</sqlMap>

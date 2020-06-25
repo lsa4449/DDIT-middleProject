@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="join">
+
+	<!-- 아이디 중복확인 -->
+	<select id="selectIdMember" parameterClass="String" resultClass="String">
+	SELECT id FROM member WHERE id=#id#
+		
+	</select>
+	
+	<!-- 닉네임 중복 확인 -->
+	<select id="selectNickNameMember" parameterClass="String" resultClass="String">
+	SELECT nickname FROM member WHERE nickname = #data#
+	</select>
+	
+	<!-- 회원 가입 -->
+	<insert id="insertMember" parameterClass="MemberVO">
+	INSERT INTO member VALUES(seq_mem.nextval, #id#, #pw#, #rrnNum#, #nickName#, #name#, #addr#, null, sysdate, #tel#, #email#, 1, #zip#,1)
+	</insert>
+	
+</sqlMap>

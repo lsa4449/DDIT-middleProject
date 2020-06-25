@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!-- 수신인, 송신인 -->
+<sqlMap namespace="deal">
+
+	<insert id = "insertDeal" parameterClass="HashMap">
+		insert into deal(dealNum, memNum, memNum2, account)
+		values(SEQ_DEAL.nextval, #memNum#, #memNum2#, #account#)
+	</insert>
+
+<select id="selectAllDeal" parameterClass="int"
+	resultClass="dealVO">
+	select deal.*, ROWNUM as dealGroupNum
+	from deal where memNum = #memNum#
+</select>
+	<!--  
+	<select id="selectAllDeal" parameterClass="int"
+		resultClass="dealVO">
+		select c.name memId , c.name2 memId2, deal.account account, ROWNUM as dealGroupNum
+		from
+		(
+		select a.memnum memnum, a.name name, b.name2 name2
+		from
+		(select name, memnum
+		from member
+		where memnum in(
+		select memnum
+		from deal
+		where memnum = #memNum#))a,
+		(
+		select name name2
+		from member
+		where memnum in(
+		select memnum2
+		from deal
+		where memnum = #memNum#))b) c,
+		deal
+		where c.memnum = deal.memnum and c.name != c.name2;
+	</select>
+	-->
+	
+</sqlMap>
+
+
+

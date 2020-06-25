@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ebook">
+
+	<select id="selectEBookAll" resultClass="EBookVO">
+		select * from ebook order by ebookNum
+	</select>
+	
+	<select id="selectEBookAuthor" resultClass="EBookVO" parameterClass="EBookVO">
+		select * from ebook where ebookauthor = #eBookAuthor# order by ebookNum
+	</select>
+	
+	<select id="selectEBookName" resultClass="EBookVO" parameterClass="EBookVO">
+		select * from ebook where ebookname = #eBookName# order by ebookNum
+	</select>
+	
+	
+
+	
+
+</sqlMap>

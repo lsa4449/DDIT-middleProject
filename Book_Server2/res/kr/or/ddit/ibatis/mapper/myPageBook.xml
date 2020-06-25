@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="myPageBook">
+	<select id="selectMyBookReturn" resultClass="MyBookPageVO" parameterClass="memberVO">
+		select book.bookName bookName, book.author author, a.rentalDate rentalDate, a.returnDate returnDate
+		from book,
+		(select bookNum, rentalDate, returnDate
+		from bookRental
+		where memNum = #memNum#) a
+		where book.booknum = a.booknum
+		<isNotEmpty>
+		</isNotEmpty>
+	</select>
+	
+	<select id="selectMyBookReserve" resultClass="MyBookPageVO" parameterClass="memberVO">
+	select d.bookname bookName, d.author author, d.reserdate reserveDate, c.expectreturndate expectReturnDate
+	from bookRental c,
+	(select a.booknum booknum, a.bookname bookname, a.author author, b.RESERDATE reserdate
+	from book a, bookreserve b
+	where a.booknum = b.booknum 
+	and b.reserstate = 1
+	and b.memnum = #memNum#) d
+	where c.booknum = d.booknum
+	</select>
+	
+	<select id="selectMyBookRentaling" resultClass="MyBookPageVO" parameterClass="memberVO">
+	select book.bookName bookName, book.author author, a.rentalDate rentalDate, a.returnDate returnDate
+		from book,
+		(select bookNum, rentalDate, returnDate
+		from bookRental
+		where state = 1 and memNum = #memNum#) a
+		where book.booknum = a.booknum
+	</select>
+	
+	<select id="selectMyWannaBook" resultClass="WannaBookVO" parameterClass="memberVO">
+	select *
+	from wannabook
+	where memNum = #memNum#;
+	</select>
+
+
+
+</sqlMap>

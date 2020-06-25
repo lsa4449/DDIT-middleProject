@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="myPagePoint">
+
+<insert id="insertNowPoint" parameterClass="pointVO">
+      insert into
+      pointCategory(pointCategoryNum, memNum, nowPoint)
+      values(seq_point.nextval, #memNum#, #nowPoint#)
+</insert>
+
+<insert id="insertTransPoint" parameterClass="pointVO">
+	 insert into
+      pointCategory(pointCategoryNum, memNum, transPoint)
+      values(seq_point.nextval,#memNum#, #transPoint#)
+</insert>
+
+<select id="selectAllPoint" parameterClass="int" resultClass="String">
+      select distinct SUM(nowPoint) OVER(partition by memNum ORDER BY memNum) allPoint
+      from pointCategory where memNum = #memNum#
+</select>
+
+<select id="selectAllPointTrans" parameterClass="int" resultClass="String">
+	 select distinct SUM(transPoint) OVER(partition by memNum ORDER BY memNum) resiPoint
+      from pointCategory where memNum = #memNum#
+</select>
+
+</sqlMap>

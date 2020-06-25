@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<sqlMap namespace="userBookBoard">
+
+	<!-- 1. 해당 게시판 번호에 따른 게시판 목록 전체 조회 -->
+	<select id="selectAll" resultClass="boardVO" parameterClass="int">
+		select board.*, ROWNUM as boardGroupNum 
+		from board 
+		where boardKindNum = #boardKindNum# 
+	</select>
+	<!-- 2. 게시판 제목, 게시판 번호에 따른검색조회 -->
+	<select id = "selectTitleUserBookBoard" resultClass = "boardVO" parameterClass="boardVO">
+		select board.*, ROWNUM as boardGroupNum
+		from board 
+		where boardTitle LIKE #boardTitle# || '%' and boardKindNum =  #boardKindNum# 
+	</select>
+	
+	<!-- 3. 게시판 작성자ID, 게시판 번호에 따른 검색 조회 
+	        member랑 조인해서 memNum값을 통해 board값 가져오기
+	                  단, 파라미터 하나밖에 못받기 때문에 게시판 다르게 조건 부여-->
+	<select id = "selectMemUserBookBuyBoard" resultClass = "boardVO" parameterClass="String">
+		select b.*, ROWNUM as boardGroupNum
+		from member a, board b 
+		where a.memNum = b.memNum and a.id = #id# and boardKindNum = 6 
+	</select>
+	
+	<select id = "selectMemUserBookCellBoard" resultClass = "boardVO" parameterClass="String">
+		select b.*, ROWNUM as boardGroupNum
+		from member a, board b 
+		where a.memNum = b.memNum and a.id = #id# and boardKindNum = 1
+	</select>
+	
+	<!-- 상세 정보 조회 -->
+	<select id = "detailUserBookBoard" resultClass = "BoardVO" parameterClass="BoardVO">
+		select * from board where boardKindNum = #boardKindNum# and boardNum = #boardNum#
+	</select>
+	
+	<select id = "selectFile" resultClass = "filesVO" parameterClass="int">
+		select * from files where boardNum = #boardNum#
+	</select>
+	
+	<select id = "selectPrice" resultClass = "priceVO" parameterClass="int">
+		select * from price where boardNum = #boardNum#
+	</select>
+	
+	<!-- 게시판 작성  -->
+	<insert id="insertUserBookBoard" parameterClass = "boardVO">
+		insert into board(boardNum, boardTitle, boardContent, boardDate, boardCount, boardKindNum, memNum) 
+		values (SEQ_BOARD.nextval, #boardTitle#, #boardContent#, sysdate, 0, #boardKindNum#, #memNum#) 
+	</insert>
+	
+	<!-- 첨부파일에서 boardNum입력을 위해 현재 시퀀스 반환  -->
+	<select id="searchboardNum" resultClass ="int">
+		select SEQ_BOARD.currval from dual
+	</select>
+		
+	<insert id="insertfile" parameterClass = "filesVO">
+		insert into files (fileNum, fileName, boardNum)
+		values (SEQ_FILES.nextval, #fileName#, #boardNum#)
+	</insert>
+	
+	<!-- 팝니다 게시판일 경우, 가격 설정 -->
+	<insert id="insertBookBoardBuyPrice" parameterClass="priceVO">
+		insert into price(boardNum, tradeMoney)
+		values (#boardNum#, #tradeMoney#)
+	</insert>
+	
+	<!-- 게시판 삭제 -->
+	<delete id="deletePrice" parameterClass = "int">
+		delete from price where boardNum = #boardNum#
+	</delete>
+	
+	<delete id="deletefile" parameterClass = "int">
+		delete from files where boardNum = #boardNum#
+	</delete>
+	
+	<delete id="deleteUserBookBoard" parameterClass = "int">
+		delete from board where boardNum = #boardNum#
+	</delete>
+
+	
+	<!-- 게시판 수정 -->
+	<update id="updateUserBookBoard" parameterClass="boardVO" >
+		update board set boardTitle=#boardTitle#, boardContent=#boardContent# where boardNum=#boardNum#
+	</update>
+	
+	<update id="updatefile" parameterClass="filesVO">
+		update files set fileName = #fileName# where boardNum=#boardNum#
+	</update>
+	
+	<!-- 조회수  증가 시키기 -->
+	<update id = "upboardCount" parameterClass = "boardVO">
+		update board set boardCount = #boardCount# + 1 where boardNum=#boardNum#
+	</update>
+	
+	
+</sqlMap>

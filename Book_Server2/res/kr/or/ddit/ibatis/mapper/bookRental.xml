@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="bookRental">
+
+	<select id="selectAllBookRental">
+		select b.booknum, b.bookname, b.author, b.publisher, b.registerdate, r.state
+		from book b, bookrental r
+		where b.booknum = r.booknum;
+
+	</select>
+	
+	<insert id="insertBookRental" parameterClass="BookRentalVO">
+		insert into bookrental values(SEQ_BOOKRENTAL.nextval, sysdate, sysdate, #memNum#, #bookNum#, null, #state#,sysdate+3)
+	</insert>
+
+</sqlMap>

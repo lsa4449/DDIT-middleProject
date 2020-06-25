@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="seat">
+
+<select id="selectCurrentStatus" resultClass="SeatVO">
+	SELECT * FROM seat	
+</select>
+
+<select id="selectMemberNum" parameterClass="Integer" resultClass="SeatRentalVO">
+	SELECT * FROM seatRental WHERE memNum = #memNum# 
+</select>
+
+<update id="updateRentalSeat" parameterClass="SeatRentalVO">
+	UPDATE seatRental SET memNum=#memNum#, seatNum = #seatNum#, seatRentalNum=#seatNum#, seatRentalTime=sysdate, seatReturnTime=sysdate+(3/24) WHERE seatNum = #seatNum#
+</update>
+
+<update id="updateCancleRentalSeat" parameterClass="SeatRentalVO">
+	UPDATE seatRental SET memNum=0, seatRentalTime = sysdate, seatReturnTime=sysdate WHERE seatNum=#seatNum#
+</update>
+
+<update id="updateSeatStatus" parameterClass="SeatVO">
+	UPDATE seat SET seatState=#seatState# WHERE seatNum=#seatNum#
+</update>
+	
+
+</sqlMap>

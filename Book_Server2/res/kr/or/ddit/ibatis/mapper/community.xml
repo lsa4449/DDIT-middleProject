@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<sqlMap namespace="board">
+    <!-- 게시글 작성(등록)  -->
+	<insert id="insertCommunity" parameterClass="boardVO">
+		insert into board (boardNum, boardTitle, boardContent,boardKindNum, boardCount, boardDate, memNum) values (seq_board.nextval, #boardTitle#, #boardContent#, 3,0,sysdate, #memNum#)    
+	</insert>
+	
+	
+	<!-- 게시글 전체조회 -->
+	<select id="selectCommunity" resultClass="boardVO">
+		select board.*, ROWNUM as boardGroupNum 
+		from board
+		where boardKindNum = 3
+	</select>
+	
+	
+	<!-- 게시글 제목검색 -->
+	<select id="selectBoard" resultClass="boardVO" parameterClass="String">
+     	select BOARDNUM, 
+			   BOARDTITLE, 
+			   BOARDCONTENT, 
+			   TO_CHAR(BOARDDATE2,'YYYY-MM-DD') AS BOARDDATE2,
+			   BOARDCOUNT, 
+			   BOARDKINDNUM, 
+			   MEMNUM, 
+			   ROW_NUMBER() over(order by boardNum)as boardGroupNum
+		from board 
+		
+		where boardTitle LIKE '%'||#data#||'%'  
+		and boardKindNum = 3 
+		order by BoardNum DESC
+   </select>
+	
+	
+	
+	<!-- 게시글 상세조회 -->
+	<select id = "detail" parameterClass = "int" resultClass = "boardVO">
+	select * from board where boardnum = #boardnum#
+	</select>
+
+	<!--게시글 삭제 쿼리문 -->
+	<delete id="deleteBoard" parameterClass="int">
+		delete from board where boardNum = #boardNum#
+	</delete>
+	
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterClass="boardVO">
+		update board set boardTitle=#boardTitle#, boardContent=#boardContent#
+		where boardNum=#boardNum#
+	</update> 
+	<!-- 조회수 -->
+	<update id = "upboardCount" parameterClass = "boardVO">
+		update board set boardCount = #boardCount# + 1 where boardNum=#boardNum#
+	</update>
+	
+</sqlMap>
+

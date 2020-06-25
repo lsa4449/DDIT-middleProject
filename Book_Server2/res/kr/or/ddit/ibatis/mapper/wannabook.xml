@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+         PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+         "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="wannaBook">
+
+	<insert id="insertWannaBook" parameterClass="wannaBookVO">
+	insert into wannabook values(SEQ_WANNABOOK.nextval, #memNum#, #categoryNum#, #wannaTitle#
+	, #wannaAuthor#, #wannaPublicaiontDate#, #wannaPublisher#, #wannaTranslator#, 0, sysdate)	
+	</insert>
+	
+	<update id="updateAcceptWannaBook" parameterClass="wannaBookVO">
+		update wannabook set wannastate=1 where wannabooknum = #wannaBookNum#
+	</update>
+	
+	<update id="updateRejectWannaBook" parameterClass="wannaBookVO">
+	update wannabook set wannastate=2 where wannabooknum = #wannaBookNum#
+	</update>
+	
+	
+	<select id="selectWannaBook" resultClass="WannaBookVO" >
+	 select *
+	 from wannabook;
+	</select>
+
+
+
+
+
+</sqlMap>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+   <!-- 1. db연결 정보.  파일 설정-->
+    <!-- <properties resource="경로/파일이름" /> -->
+    <properties resource="kr/or/ddit/ibatis/config/SqlMapConfig.properties" />
+   
+   <settings cacheModelsEnabled="true" enhancementEnabled="true"
+      lazyLoadingEnabled="true" maxRequests="32" maxSessions="10"
+      maxTransactions="5" useStatementNamespaces="true" />
+   
+   <!--2.  VO 클래스에 대한 별칭선언-->
+   <!-- <typeAlias alias="memberVO" type="경로.클래스이름"/>  -->
+   
+   	<!-- 재호 -->
+	<typeAlias alias="memberVO" type="kr.or.ddit.vo.MemberVO"/>
+	<typeAlias alias="myBookPageVO" type="kr.or.ddit.vo.MyBookPageVO"/>
+	<typeAlias alias="wannaBookVO" type="kr.or.ddit.vo.WannaBookVO"/>
+   	<typeAlias alias="ebookVO" type="kr.or.ddit.vo.EBookVO"/>
+   	<typeAlias alias="memberManageVO" type="kr.or.ddit.vo.MemberManageVO"/>
+   	<typeAlias alias="bookRentalVO" type="kr.or.ddit.vo.BookRentalVO"/>
+   	
+   	
+   	<!-- 영현 -->
+   	<typeAlias alias="MemberVO" type="kr.or.ddit.vo.MemberVO"/> <!-- join insert에서 사용 -->
+   	<typeAlias alias="studyRoomVO" type="kr.or.ddit.vo.StudyRoomVO"/> <!-- studyroom 에서 사용 -->
+   	<typeAlias alias="studyRoomRentalVO" type="kr.or.ddit.vo.StudyRoomRentalVO"/> <!-- studyroom 에서 사용 -->
+   	<typeAlias alias="myStudyRoomVO" type="kr.or.ddit.vo.MyStudyRoomVO"/> <!-- studyroom 에서 사용 -->
+   	<typeAlias alias="myStudyRoomSelect_JoinVO" type="kr.or.ddit.vo.MyStudyRoomSelect_JoinVO"/> <!-- myStudyRoom에서 사용 -->
+   	<typeAlias alias="SeatVO" type="kr.or.ddit.vo.SeatVO"/> <!-- seat에서 사용 -->
+   	<typeAlias alias="SeatRentalVO" type="kr.or.ddit.vo.SeatRentalVO"/> <!-- seat에서 사용 -->
+   	
+   	<!-- 수아 -->
+	<typeAlias alias="bookVO" type="kr.or.ddit.vo.BookVO"/>
+	<typeAlias alias="pointVO" type="kr.or.ddit.vo.PointCategoryVO"/>
+	<typeAlias alias="monthVO" type="kr.or.ddit.vo.MonthBookVO"/>
+	<typeAlias alias="monthFileVO" type="kr.or.ddit.vo.MonthFileVO"/>
+   	
+   	<!-- 성하 -->
+    <typeAlias alias="boardVO" type="kr.or.ddit.vo.BoardVO"/>
+    <typeAlias alias="rippleVO" type="kr.or.ddit.vo.RippleVO"/>
+    
+  
+   	<!-- 윤희 -->
+    <typeAlias alias="filesVO" type="kr.or.ddit.vo.FilesVO"/>
+   
+   <!-- 동미 -->
+   <typeAlias alias="priceVO" type="kr.or.ddit.vo.PriceVO"/>
+   <typeAlias alias="dealVO" type="kr.or.ddit.vo.DealVO"/>
+  
+
+   <transactionManager type="JDBC">
+   <dataSource type="SIMPLE"> 
+      <property name="JDBC.Driver" value="${driver}" />
+      <property name="JDBC.ConnectionURL" value="${url}" />
+      <property name="JDBC.Username" value="${username}" />
+      <property name="JDBC.Password" value="${password}" />
+   </dataSource> 
+  </transactionManager>
+   
+   <!-- 3. sql실행문이 선언된 mapper파일(member.xml) 연결 -->
+   <!-- <sqlMap resource="경로/파일이름"/> -->
+   
+   <!-- 재호 -->
+	<sqlMap resource="kr/or/ddit/ibatis/mapper/myPageBook.xml"/>
+	<sqlMap resource="kr/or/ddit/ibatis/mapper/wannabook.xml"/> 
+	<sqlMap resource="kr/or/ddit/ibatis/mapper/ebook.xml"/>
+	<sqlMap resource="kr/or/ddit/ibatis/mapper/admin.xml"/>
+	 <sqlMap resource="kr/or/ddit/ibatis/mapper/bookRental.xml"/>
+	
+	
+   <!-- 영현 -->
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/join.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/login.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/studyRoom.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/myStudyRoom.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/seat.xml"/>
+
+   <!-- 수아 -->
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/book.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/myPagePoint.xml"/>
+   <sqlMap resource="kr/or/ddit/ibatis/mapper/monthBook.xml"/>
+   
+   <!-- 성하 -->
+     <sqlMap resource="kr/or/ddit/ibatis/mapper/community.xml"/>
+     <sqlMap resource="kr/or/ddit/ibatis/mapper/questions.xml"/>
+     <sqlMap resource="kr/or/ddit/ibatis/mapper/studyboard.xml"/>
+   
+   <!-- 윤희 -->
+  	 <sqlMap resource="kr/or/ddit/ibatis/mapper/notice.xml"/>
+  	 <sqlMap resource="kr/or/ddit/ibatis/mapper/myPageInfo.xml"/>
+
+
+   <!-- 동미 -->
+   	<sqlMap resource="kr/or/ddit/ibatis/mapper/userBookBoard.xml"/>
+    <sqlMap resource="kr/or/ddit/ibatis/mapper/deal.xml"/>
+
+</sqlMapConfig>
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="monthBook">
+
+	<select id="selectMonthBookAll" resultClass="monthVO">
+		select * from
+		monthBook order by bookNum desc
+	</select>
+
+	<insert id="insertMonthBook" parameterClass="monthVO">
+		insert into
+		monthBook(monthBookNum, bookNum, monthBookName, monthBookImage)
+		values
+		(seq_monthBook.nextval, 1, #monthBookName#, #monthBookImage#)
+
+	</insert>
+
+	<select id="selectFiles" resultClass="monthFileVO"
+		parameterClass="int">
+		select * from monthFile where monthBookNum = #monthBookNum#
+	</select>
+
+	<insert id="insertfiles" parameterClass="monthFileVO">
+		insert into monthFile
+		(fileNum, fileName, monthBookNum)
+		values (seq_monthFile.nextval, #fileName#, #monthBookNum#)
+	</insert>
+
+	<delete id="deleteMonthBook" parameterClass="int">
+		delete from MonthBook where monthBookNum = #monthBookNum#
+	</delete>
+
+
+</sqlMap>

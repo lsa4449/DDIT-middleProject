@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="studyRoom">
+
+	<select id="selectStudyRoom" resultClass="studyRoomVO">
+		SELECT * FROM studyRoom
+	</select>
+	
+	<update id="updateStudyRoomReserve_Cancel" parameterClass="studyRoomVO">
+		UPDATE studyRoom SET studyroomstate=#studyRoomState# WHERE studyroomnum = #studyRoomNum#
+	</update>
+	
+	<update id="updateStudyRoomRental" parameterClass="studyRoomRentalVO">
+		UPDATE studyRoomRental SET studyRoomNum=#studyRoomNum#, studyRoomRentalTime=sysdate, studyRoomReturnTime=sysdate+(3/24), memNum=#memNum# WHERE studyRoomRentalNum=#studyRoomNum# 
+	</update>
+	
+	<update id="updateMyStudyRoom" parameterClass="myStudyRoomVO">
+		UPDATE mystudyroom SET studyRoomRentalNum=#studyRoomRentalNum#, studyRoomNum=#studyRoomNum# WHERE myStudyRoomNum=#myStudyRoomNum# 
+	</update>
+
+
+
+
+</sqlMap>

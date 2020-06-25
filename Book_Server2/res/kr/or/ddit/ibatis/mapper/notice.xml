@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<sqlMap namespace="notice">
+ 
+ 	<!-- 
+	 	위 태그에서 사용되는 속성들
+	 		1) id속성 : 해당 태그를 호출할 때 <sqlMap>태그의 namespace와
+	 							  연결하여 사용하는 이름
+	 		2) parameterClass속성 : sql문에 사용될 데이터가 들어있는 객체를
+	 							  지정한다. 
+	 							  (보통 VO클래스, 자바의 자료형이름 등이 사용된다.)
+	 							  (typeAlia로 지정한 alias명을 사용할 수 있다.)							  
+			3) resultClass속성 : select문을 실행한 결과를 담을 객체를 지정한다.
+								 (보통 VO클래스나 자바의 자료형이름을 사용한다.)							 
+	 -->
+	     
+	
+	
+	<!--게시글 검색 쿼리문  -->
+	<select id="selectNotice" resultClass="boardVO" parameterClass="String">
+		select BOARDNUM, 
+			   BOARDTITLE, 
+			   BOARDCONTENT, 
+			   TO_CHAR(BOARDDATE2,'YYYY-MM-DD') AS BOARDDATE2,
+			   BOARDCOUNT, 
+			   BOARDKINDNUM, 
+			   MEMNUM, 
+			   ROW_NUMBER() over(order by boardNum)as boardGroupNum
+		from board 
+		
+		where boardTitle LIKE '%'||#data#||'%'  
+		and boardKindNum = 4 
+		order by BoardNum DESC
+	</select>
+	
+	
+	
+	<!--전체 조회 쿼리문  --> 
+	<select id="selectAll" resultClass="boardVO">
+		<!-- select * from board order by BoardNum DESC -->
+	    select BOARDNUM, 
+			   BOARDTITLE, 
+			   BOARDCONTENT, 
+			   TO_CHAR(BOARDDATE2,'YYYY-MM-DD') AS BOARDDATE2,
+			   BOARDCOUNT, 
+			   BOARDKINDNUM, 
+			   MEMNUM, 
+			   ROW_NUMBER() over(order by boardNum)as boardGroupNum
+		FROM board
+		where boardKindNum = 4 
+		order by boardGroupNum DESC
+		<!--order by BoardNum DESC  -->
+	</select>
+
+	
+	
+	<!--게시글 작성하기 쿼리문  --> 
+	<insert id="insertNotice" parameterClass="boardVO">
+		<selectKey keyProperty="boardNum" resultClass="int">
+			select seq_board.nextval as boardNum from dual
+		</selectKey>
+		
+		insert into board (boardNum, boardTitle, boardContent, boardDate2, boardCount, boardKindNum, memNum) 
+		values (#boardNum#, #boardTitle#, #boardContent#, SysDate, 0,4, 1)  
+	
+	</insert>
+	
+	
+	
+	<!--게시글 삭제 쿼리문 -->
+	<delete id="deleteNotice" parameterClass="int">
+		delete from board where boardNum = #boardNum#
+	</delete>
+	
+	
+	
+	<!--게시글 수정 쿼리문  -->
+	 <update id="updateNotice" parameterClass="boardVO">
+		update board 
+		
+		set 
+		boardTitle=#boardTitle#, boardContent=#boardContent#
+		
+		where boardNum=#boardNum#
+	</update> 
+
+
+	<!--첨부파일 등록 쿼리문  -->
+	<insert id="insertFiles" parameterClass="filesVO">
+		insert into files (fileNum, fileName, boardNum)
+		values(seq_files.nextval, #fileName#, #boardNum#)
+	</insert>
+	
+	
+	
+	<!--첨부파일 삭제 쿼리문-->
+	<delete id="deleteFile" parameterClass="int">
+		delete from files where fileNum = #fileNum#
+	</delete>
+
+	
+	
+    <!--X상세 내용 쿼리문 X-->
+<!-- 	<select id="detailNotice" resultClass="boardVO" parameterClass="String">
+		select boardTitle, boardContent, boarDdate from board where boardNum = #boardNum#
+	</select> -->
+	
+	<select id="selectNoticeFile" parameterClass="int" resultClass="filesVO">
+		select * from files where boardNum = #boardNum#
+	</select>
+	
+	
+	
+	<!-- 조회수  증가 시키기 -->
+	<update id = "upboardCount" parameterClass = "boardVO">
+		update board set boardCount = #boardCount# + 1 where boardNum=#boardNum#
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap>			

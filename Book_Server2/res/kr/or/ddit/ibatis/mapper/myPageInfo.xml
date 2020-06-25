@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="info">
+	
+	<select id="selectMyInfo" parameterClass="String" resultClass="MemberVO">
+		select nickname, tel, pw
+		from member
+		where id = #id#
+	</select>
+	
+	
+	<update id="updateMyinfo" parameterClass="MemberVO" >
+		update member 
+		
+        set 
+		nickname = #nickName#, tel = #tel#, pw = #pw#
+		
+		where memNum = #memNum#
+	</update>
+	
+	
+	
+	
+	<!-- 삭제되는 회원은 상태값 'Y' 아니면 'N' 
+	1.
+	MEMBER TABLE 옵션에 ON CASCADE 설정 하는 경우..
+	MEMBER TALBE DATA DLELE FROM ....... 하는경우 FK회원번호로 받는 테이블 데이터 모두 삭제
+	
+	ALTER TABLE [FK를 가지고 있는 테이블]
+	ADD CONSTRAINT FK_제약조건명   
+	FOREIGN KEY ( FK이름 )  // 회원번호
+	REFERENCES [연결할테이블] ( 연결할테이블의PK이름 ) // MEMBER
+	ON DELETE CASCADE 삭제일때 
+	ON UPDATE CASCADE 업데이트일때
+
+	출처: https://lbnl1027.tistory.com/entry/CASCADE-제약조건-추가 [Once in a Lifetime]
+	
+	2.회원상태값으로 DEL_YN 여부나 삭제값을 Y,N으로 구분하여 회원삭제를 알수있도록 하면.. -->
+	
+	
+	
+	<!-- <update id="deleteMyinfo" parameterClass="MemberVO" >
+		update member 
+        set 
+		delYn = 'N'
+		where id = #data#
+	</update> -->
+	
+	
+	
+	
+
+	
+	
+	
+</sqlMap>			

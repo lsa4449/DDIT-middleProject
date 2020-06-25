@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<sqlMap namespace="admin">
+    <!-- 게시글 작성(등록)  -->
+	<insert id="insertCommunity" parameterClass="boardVO">
+		insert into board (boardNum, boardTitle, boardContent,boardKindNum, boardCount, boardDate, memNum) values (seq_board.nextval, #boardTitle#, #boardContent#, 3,0,sysdate, #memNum#)    
+	</insert>
+	
+	
+	<!-- 회원 전체조회 -->
+	<select id="selectMemberAll" resultClass="memberManageVO">
+		select memNum, id, pw, rrnNum, nickName, name, addr, joinNow, tel, email, authority, zip, state,  sum(overtimecount) lateCount
+		from
+		(
+		select a.overtimecount, b.memnum, b.id, b.pw, b.rrnnum, b.nickname, b.name, b.addr, b.joinnow, b.tel, b.email, b.authority, b.zip, b.state
+		from memmanage a, member b
+		where a.memnum = b.memnum
+		)
+		group by overtimecount, memnum, id, pw, rrnnum, nickname, name, addr,  joinnow, tel, email, authority, zip, state
+	</select>
+	
+	<!-- 회원 상태 정지로 바꾸기 -->
+	<update id="updateMemberStateStop" parameterClass="int">
+		update member set state = 3 where memnum = #data#
+	</update>
+	
+	<!-- 회원 상태 일반회원으로 바꾸기 -->
+	<update id="updateMemberStateNomal" parameterClass="int">
+		update member set state = 0 where memnum = #data#
+	</update>
+	<!-- 회원 상태 우수회원으로 바꾸기 -->
+	<update id="updateMemberStateGood" parameterClass="int">
+		update member set state = 1 where memnum = #data#
+	</update>
+	
+	<!-- 회원 상태 경고회원으로 바꾸기 -->
+	<update id="updateMemberStateWarning" parameterClass="int">
+		update member set state = 2 where memnum = #data#
+	</update>
+	
+
+	<!-- 해당 회원의 연체횟수 구하기  -->
+	<select id ="selectLateCount" parameterClass="int" resultClass = "int">
+		select * from memmanage where memnum = #data#
+	</select>
+	
+	
+	
+	
+	
+	<!-- 게시글 제목검색 -->
+	<select id="selectBoard" resultClass="boardVO" parameterClass="String">
+      select * from board where boardTitle LIKE #data# || '%' order by BoardNum DESC
+   </select>
+	
+	
+	
+	<!-- 게시글 상세조회 -->
+	<select id = "detail" parameterClass = "int" resultClass = "boardVO">
+	select * from board where boardnum = #boardnum#
+	</select>
+	
+	
+	
+	<!--게시글 삭제 쿼리문 -->
+	<delete id="deleteBoard" parameterClass="int">
+		delete from board where boardNum = #boardNum#
+	</delete>
+	
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterClass="boardVO">
+		update board set boardTitle=#boardTitle#, boardContent=#boardContent#
+		where boardNum=#boardNum#
+	</update> 
+	
+	
+	
+</sqlMap>
+

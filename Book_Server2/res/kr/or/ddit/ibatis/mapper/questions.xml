@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<sqlMap namespace="questions">
+    <!-- 게시글 작성(등록)  -->
+	<insert id="insertQuestions" parameterClass="boardVO">
+		insert into board (boardNum, boardTitle, boardContent,boardKindNum, boardCount, boardDate, memNum) values (seq_board.nextval, #boardTitle#, #boardContent#, 5,0,sysdate, #memNum#)    
+	</insert>
+	
+	
+	<!-- 게시글 전체조회 -->
+	<select id="selectQuestions" resultClass="boardVO">
+		select board.*, ROWNUM as boardGroupNum 
+		from board
+		where boardKindNum = 5
+	</select>
+	
+	
+	<!-- 게시글 제목검색 -->
+	<select id="selecttitleQuestions" resultClass="boardVO" parameterClass="String">
+      select BOARDNUM, 
+			   BOARDTITLE, 
+			   BOARDCONTENT, 
+			   TO_CHAR(BOARDDATE2,'YYYY-MM-DD') AS BOARDDATE2,
+			   BOARDCOUNT, 
+			   BOARDKINDNUM, 
+			   MEMNUM, 
+			   ROW_NUMBER() over(order by boardNum)as boardGroupNum
+		from board 
+		
+		where boardTitle LIKE '%'||#data#||'%'  
+		and boardKindNum = 5
+		order by BoardNum DESC
+   </select>
+	
+	
+	
+	<!-- 게시글 상세조회 -->
+	<select id = "detailQuestions" parameterClass = "int" resultClass = "boardVO">
+	select * from board where boardnum = #boardnum#
+	</select>
+	
+	
+	
+	<!--게시글 삭제 쿼리문 -->
+	<delete id="deleteQuestions" parameterClass="int">
+		delete from board where boardNum = #boardNum#
+	</delete>
+	
+	
+	<!-- 게시글 수정 -->
+	<update id="updateQuestions" parameterClass="boardVO">
+		update board set boardTitle=#boardTitle#, boardContent=#boardContent#
+		where boardNum=#boardNum#
+	</update> 
+	
+	<!-- 댓글 달기 -->
+	<insert id="rippleQuestion" parameterClass="rippleVO">
+	insert into ripple (rippleNum, rippleContent, boardNum, memNum)
+	values (seq_board.nextVal, #rippleContent#, (select boardNum from board where boardNum = #boardNum#), 0)
+	</insert>
+	
+	<!-- 댓글 조회 -->
+	<select id = "rippleSelect" resultClass = "rippleVO" parameterClass = "Integer">
+	select * from ripple where boardnum = #data#
+	</select>
+	<!-- 조회수 증가 -->
+	<update id = "upboardCount" parameterClass = "boardVO">
+		update board set boardCount = #boardCount# + 1 where boardNum=#boardNum#
+	</update>
+	
+</sqlMap>
+
+
+
+
+
+
+
+
+
+

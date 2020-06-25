@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="myStudyRoom">
+
+<select id="selectMyStudyRoom" parameterClass="Integer" resultClass="myStudyRoomSelect_JoinVO">
+	SELECT m.NAME adMyStudyRoomName
+		, TO_CHAR(s.STUDYROOMRENTALTIME, 'MM-DD HH:MI:SS') adMyStudyRoomReserveTime
+		, TO_CHAR(s.STUDYROOMRETURNTIME,  'MM-DD HH:MI:SS') adMyStudyRoomReturnTime
+		, my.MYSTUDYROOMNUM adMyStudyRoomNum 
+	FROM member m, STUDYROOMRENTAL s, mystudyroom my
+	WHERE m.memNum = s.MEMNUM AND m.memNum = #num# AND s.STUDYROOMNUM = my.STUDYROOMNUM
+</select>
+
+
+
+</sqlMap>

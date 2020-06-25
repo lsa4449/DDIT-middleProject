@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="book">
+
+	<insert id="insertBook" parameterClass="bookVO">
+		insert into book
+		(bookNum, bookName, author, publicationDate, ISBN, registerDate,
+		publisher, translator, price, categoryNum, bookState)
+		values
+		(seq_book.nextval, #bookName#, #author#, sysdate, #isbn#, sysdate,
+		#publisher#, #translator#, #price#, #categoryNum#, 'x')
+	</insert>
+
+	<select id="selectBook" resultClass="bookVO">
+		select ROWNUM as bookGroupNum , book.*
+		from book order by bookGroupNum desc 
+	</select>
+
+	<update id="updateBook" parameterClass="bookVO">
+		update book 
+		
+		set 
+		bookName=#bookName#, author=#author#, isbn=#isbn#, publisher=#publisher#,
+		translator=#translator#, price=#price#, categoryNum=#categoryNum#
+		
+		where bookNum=#bookNum#
+	</update>
+
+	<select parameterClass="bookVO" id="selectSearchBook"
+		resultClass="bookVO">
+		
+	select * from book where bookName LIKE #bookName# || '%' 
+
+	</select>
+	
+	<delete id="deleteBook" parameterClass="int">
+		delete from book where bookNum=#bookNum#
+	</delete>
+	
+	<update id="afterReserBook" parameterClass="int">
+		update book 
+		
+		set 
+		bookState = 'o'
+		
+		where bookNum=#bookNum#
+	</update>
+	
+		
+
+</sqlMap>
