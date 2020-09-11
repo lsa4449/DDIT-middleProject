@@ -1,6 +1,6 @@
 # 도서관리시스템
 
-# 논리 ERD
+## 논리 ERD
 <div>
 <img src="https://user-images.githubusercontent.com/45137643/92885109-6b6a2900-f44d-11ea-87ce-8397d274446b.PNG" width="90%"></img>
 </div>
