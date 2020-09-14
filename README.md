@@ -10,11 +10,6 @@
 <img src="https://user-images.githubusercontent.com/45137643/92885541-ce5bc000-f44d-11ea-9d80-93beefce08af.PNG" width="90%"></img>
 </div>
 
-## 마스터 테이블
-<div>
-<img src="https://user-images.githubusercontent.com/45137643/92885593-db78af00-f44d-11ea-9b58-352592349b7b.PNG" width="90%"></img>
-</div>
-
 ## 메인페이지
 <div>
 <img src="https://user-images.githubusercontent.com/45137643/92889204-fa2c7500-f450-11ea-8794-aff5813a182a.png" width="90%"></img>
